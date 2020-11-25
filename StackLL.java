@@ -1,20 +1,20 @@
 
-public class StackLL {
+public class StackLL<G> { // relies on generic type G
   
   // class variable
-  private LinkedList list;
+  private LinkedList<G> list;
   
   // constructor
   StackLL(){
-    list = new LinkedList();
+    list = new LinkedList<G>();
   }
   
-  public void push(String inVal){
+  public void push(G inVal){
     list.append(inVal);
   }
   
-  public String pop(){
-    String rtn = list.tailValue();
+  public G pop(){
+    G rtn = list.tailValue();
     list.deleteTail();
     return rtn;
   }
@@ -31,7 +31,7 @@ public class StackLL {
     return list.count();
   }
   
-  public String peek(){
+  public G peek(){
     return list.tailValue();
   }
 

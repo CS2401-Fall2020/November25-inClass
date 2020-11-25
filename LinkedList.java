@@ -1,26 +1,26 @@
 
-public class LinkedList {
-  private class Node{
-    public String value; 
+public class LinkedList<P> { // relies on generic type P
+  private class Node <Q>{ // relies on generic Q
+    public Q value; 
     public Node next;
     
-    Node(String inVal, Node inNext){
+    Node(Q inVal, Node inNext){
       value = inVal;
       next = inNext;
     }
     
-    public String toString() { return value; }
+    public String toString() { return value.toString(); }
   }
   
-  private Node head;
-  private Node tail;
+  private Node<P> head;
+  private Node<P> tail;
   
-  public void prepend(String inVal) {
+  public void prepend(P inVal) {
     if(head == null) append(inVal);
     else head = new Node(inVal, head);
   }
   
-  public void append(String inVal) {
+  public void append(P inVal) {
     if(tail != null) {
       tail.next = new Node(inVal, null);
       tail = tail.next;
@@ -29,12 +29,12 @@ public class LinkedList {
     }
   }
 
-  public String headValue() {
+  public P headValue() {
     if(head == null) return null;
     return head.value;
   }
 
-  public String tailValue() {
+  public P tailValue() {
     if(tail == null) return null;
     return tail.value;
   }
@@ -71,7 +71,7 @@ public class LinkedList {
     Node current = head;
     String rtn = "";
     while(current != null) {
-      rtn += current + "->";
+      rtn += "(" + current + ")->";
       current = current.next;
     }
     return rtn + "null";

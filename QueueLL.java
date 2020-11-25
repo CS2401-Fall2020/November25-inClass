@@ -1,20 +1,20 @@
 
-public class QueueLL {
+public class QueueLL<X> {
   
   // class variable(s)
-  private LinkedList list;
+  private LinkedList<X> list;
   
   //constructor
   QueueLL(){
-    list = new LinkedList();
+    list = new LinkedList<X>();
   }
   
-  public void enqueue(String inVal) {
+  public void enqueue(X inVal) {
     list.append(inVal);
   }
   
-  public String dequeue() {
-    String rtn = list.headValue();
+  public X dequeue() {
+    X rtn = list.headValue();
     list.deleteHead();
     return rtn;
   }
@@ -27,7 +27,7 @@ public class QueueLL {
     return list.count();
   }
   
-  public String peek() {
+  public X peek() {
     return list.headValue();
   }
   
